@@ -47,11 +47,11 @@ header {
 .navlist a:hover {
   border-bottom: 2px solid black;
 }
-#notification{
+#notification {
   font-size: 20px;
 }
-#notification:hover{
-color: #65dff6;
+#notification:hover {
+  color: #65dff6;
 }
 .searchbar {
   display: flex;
@@ -100,7 +100,6 @@ color: #65dff6;
 }
 .user-profile {
   border-radius: 10%;
-  /* width: 30px; */
   font-size: 22px;
   cursor: pointer;
   margin-right: 50px;
@@ -112,7 +111,6 @@ color: #65dff6;
   border-color: #65dff6;
   border-radius: 25px;
 }
-
 
 @media (max-width: 1600px) {
   header {
@@ -185,4 +183,32 @@ color: #65dff6;
   /* .user-profile {
     margin-left: 350px;
   } */
+}
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  margin-left: -90px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
