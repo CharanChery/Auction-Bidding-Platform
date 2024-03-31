@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-image: url("https://cdn.wallpapersafari.com/61/75/Ymx59h.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+header {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 1%;
+  background: transparent;
+  background-color: white;
+}
+
+.logo {
+  /* font-size: 30px;
+  font-weight: 700; */
+  width: 220px;
+  height: auto;
+
+  /* color: rgb(255, 162, 0); */
+}
+.navlist {
+  display: flex;
+}
+.navlist a {
+  color: black;
+  margin-left: 60px;
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: all 0.5s ease-in-out;
+}
+.navlist a:hover {
+  border-bottom: 2px solid black;
+}
+#notification{
+  font-size: 20px;
+}
+#notification:hover{
+color: #65dff6;
+}
+.searchbar {
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+}
+.searchbar form {
+  display: flex;
+  margin: 0;
+}
+.searchbar input {
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  outline: none;
+  margin-right: 10px;
+  font-size: 13px;
+  border: 0.0012px solid #65dff6;
+  height: 31px;
+}
+.searchbar input:hover {
+  border: 2px solid #65dff6;
+}
+.searchbar button {
+  background: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  font-size: 21px;
+  color: black;
+}
+.searchbar button:hover {
+  border-radius: 5px;
+  color: #65dff6;
+}
+.menu-icon {
+  color: black;
+  font-size: 25px;
+  z-index: 10001;
+  cursor: pointer;
+  display: none;
+  border: 5px solid transparent;
+}
+.menu-icon:hover {
+  font-size: 23px;
+  border-radius: 20px;
+}
+.user-profile {
+  border-radius: 10%;
+  /* width: 30px; */
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 50px;
+  margin-left: -50px;
+  border: 2px solid transparent;
+}
+.user-profile:hover {
+  color: brown;
+  border-color: #65dff6;
+  border-radius: 25px;
+}
+
+
+@media (max-width: 1600px) {
+  header {
+    padding: 10px 3%;
+    transition: 0.2s;
+  }
+}
+/* @media (max-width: 1300px) */
+@media (max-width: 1300px) {
+  .menu-icon {
+    display: block;
+  }
+  .navlist {
+    font-size: 16px;
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 300px;
+    height: 200px;
+    background: white;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 20px;
+    transition: all 0.55s ease;
+  }
+  .navlist a {
+    margin-left: 0;
+    display: block;
+    margin: 7px 0;
+  }
+  .searchbar {
+    position: absolute;
+    top: 120%;
+    right: -100%;
+    width: 300px;
+    height: 470px;
+    background: white;
+    backdrop-filter: blur(10px);
+    align-items: center;
+    display: flex;
+    padding: 150px 50px;
+    transition: all 0.55s ease;
+  }
+  .searchbar input {
+    display: block;
+  }
+  .navlist.open,
+  .searchbar.open,
+  .user-profile.open {
+    right: 0;
+  }
+  .user-profile {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    /* width: 10px;
+    height: 20px; */
+    margin-right: 130px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    align-items: center;
+    display: flex;
+
+    /* padding: 10px 10px; */
+    transition: all 0.5s ease;
+  }
+
+  /* .user-profile {
+    margin-left: 350px;
+  } */
+}

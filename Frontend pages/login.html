@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body class="background-radial-gradient">
+    <section class="text-center">
+      <div
+        id="radius-shape-1"
+        class="position-absolute rounded-circle shadow-5-strong"
+      ></div>
+      <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+      <div class="login-container">
+        <div class="card mx-9 lg-12 mx-md-5 shadow-5-strong" id="card">
+          <div class="card-body px-md-5 align-left">
+            <h2>Login</h2>
+            <form>
+              <div class="form-outline mb-4">
+                <label for="username">Email:</label>
+
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  autocomplete="new-username"
+                  required
+                />
+              </div>
+              <div class="form-outline mb-4">
+                <label for="password">Password:</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+              <div id="div_wrongusername">
+                <p class="p_wrongusername" id="p_wrongusername">
+                  Invalid username,Please Signup
+                </p>
+              </div>
+
+              <button id="loginButton" type="submit">Login</button>
+            </form>
+            <p>
+              Don't Have an Account?
+              <a href="signup.html" style="text-decoration: none"
+                >Sign up Here</a
+              >
+            </p>
+            <p>
+              Forgotten Password?
+              <a href="forgot_password.html" style="text-decoration: none"
+                >Click Here</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script src="login.js"></script>
+</html>
