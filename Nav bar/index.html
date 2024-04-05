@@ -16,7 +16,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
     <style>
       * {
         margin: 0;
@@ -27,7 +27,6 @@
         font-family: "Poppins", sans-serif;
       }
       body {
-        background-image: url("https://cdn.wallpapersafari.com/61/75/Ymx59h.png");
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -43,6 +42,7 @@
         padding: 5px 1%;
         background: transparent;
         background-color: white;
+        border-bottom: 2px solid black;
       }
 
       .logo {
@@ -57,6 +57,7 @@
         display: flex;
       }
       .navlist a {
+        position: relative;
         color: black;
         margin-left: 60px;
         font-size: 15px;
@@ -73,6 +74,18 @@
       #notification:hover {
         color: #65dff6;
       }
+
+      .notification-number {
+        position: absolute;
+        top: -5px; /* Adjust this value to align properly */
+        right: -5px; /* Adjust this value to align properly */
+        background-color: red;
+        color: white;
+        border-radius: 90%;
+        padding: 2px 5px;
+        font-size: 12px;
+      }
+
       .searchbar {
         display: flex;
         align-items: center;
@@ -150,7 +163,8 @@
           right: -100%;
           width: 300px;
           height: 200px;
-          background: white;
+          background: transparent;
+
           backdrop-filter: blur(10px);
           display: flex;
           align-items: center;
@@ -251,14 +265,22 @@
         </form>
       </div>
       <ul class="navlist">
+        <li>
+          <a href="#"><span>1000</span>coins</a>
+        </li>
         <li><a href="#">All Products</a></li>
         <li><a href="#">My Repository</a></li>
-        <li><a href="#">Category</a></li>
-        <li><a href="#">Wallet</a></li>
+        <li><a href="#">Payment</a></li>
         <li>
-          <a href="#" aria-label="notification" id="notification"
-            ><i class="bi bi-bell"></i
-          ></a>
+          <a href="#" aria-label="notification" id="notification">
+            <i class="fas fa-bell fa-sharp fa-shake"></i>
+            <span class="notification-number">5</span>
+            <audio
+              id="notificationSound"
+              src="notification_sound.mp3"
+              preload="auto"
+            ></audio>
+          </a>
         </li>
         <!-- <li><a href="#">Profile</a></li> -->
       </ul>
@@ -287,6 +309,7 @@
         <i class="bi bi-list"></i>
       </div>
     </header>
+
     <script src="script.js"></script>
     <script src="/server.js"></script>
   </body>

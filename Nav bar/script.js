@@ -3,9 +3,18 @@ let navlist = document.querySelector(".navlist");
 let searchbar = document.querySelector(".searchbar");
 let userprofile = document.querySelector(".user-profile");
 
-menu.onclick = () =>{
-    menu.classList.toggle('bx-x');
-    navlist.classList.toggle('open');
-    searchbar.classList.toggle('open');
-    userprofile.classList.toggle('open');
-}
+menu.onclick = () => {
+  menu.classList.toggle("bx-x");
+  navlist.classList.toggle("open");
+  searchbar.classList.toggle("open");
+  userprofile.classList.toggle("open");
+};
+document.addEventListener('DOMContentLoaded', function() {
+    var notificationSound = document.getElementById('notificationSound');
+    var notificationIcon = document.getElementById('notification');
+  
+    notificationIcon.addEventListener('click', function() {
+      notificationSound.play();
+    });
+  });
+  
