@@ -1,0 +1,84 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #3498db;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:scroll;
+    background-color: #1f1111;
+}
+
+.signup-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.signup-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.signup-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-container button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.signup-container button a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.signup-container button:hover {
+    background-color: #167e41;
+    cursor:default;
+}
+
+#div_wrongusername{
+    display: flex;
+}
+#div_wrongusername p{
+    color:#ffffff;
+    font-size: 10px;
+}
+
+.otpdiv{
+    display: flex;
+}
+input:hover{
+    border: 1px solid black;
+}
+
+#otp_input{
+    width: 150%;
+}
+#otp_generator{
+    background-color: #3498db;
+}

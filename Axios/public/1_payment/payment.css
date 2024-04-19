@@ -1,0 +1,91 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Image styling */
+img {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Payment box container */
+.payment-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Payment method dropdown */
+.paymentMethod {
+    width: 220px; /* Adjust the width as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.paymentMethod:hover {
+    border-color: #666;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* UPI input box */
+.upidiv {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* UPI ID input field */
+input[type="text"] {
+    width: 200px;
+    height: 40px;
+    padding: 8px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #666;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Button parent container */
+.buttonparent {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.text{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Signup</h2>
+        <form>
+            <label for="username">Enter your Email:</label>
+            <input type="text" id="username" name="username" autocomplete="username" required>
+
+            <label for="password1">Password:</label>
+            <input type="password" id="password1" name="password" autocomplete="new-password" required>
+
+            <label for="password2">Re-type Password:</label>
+            <input type="password" id="password2" name="new-password" autocomplete="new-password" required>
+
+
+            <div id="div_wrongusername">
+                <p class="p_wrongusername" id="p_wrongusername">Signup successful,Please Login</p>
+            </div>
+            
+            <button id="signupButton">Signup</button>
+            <a href="login.html">login</a>
+        </form>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="signup.js"></script>
+</html>
