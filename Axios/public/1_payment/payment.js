@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const urlusername = urlParams.get('username');
-        const textedit = document.querySelector('.text');
+        const textedit = document.querySelector('.textin');
         const h2 = document.createElement('h2')
         h2.innerText=""
         //console.log(urlusername , tid)

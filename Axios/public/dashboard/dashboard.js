@@ -115,6 +115,11 @@ document.addEventListener("DOMContentLoaded", async ()=>{
           let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
           window.location.href =fullurl
         })
+        document.getElementById('paymentGateway').addEventListener('click',()=>{
+          const newpage = '../1_payment/demo.html'  
+          let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+          window.location.href =fullurl
+        })
 
         
         

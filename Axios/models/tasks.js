@@ -52,6 +52,18 @@ const notificationSchema = new mongoose.Schema({
         time:String,
      }]
 })
+const payment_card = new mongoose.Schema({
+    username: String,
+    trans_id:String,
+    amount : Number,
+    coins_generated : Number,
+    Customer_address:[{
+        customer_address: String,
+        phone: Number,
+        email: String,
+        pincode: Number,
+    }]
+})
 
 module.exports = {
     DetailSchema:mongoose.model('data',DetailSchema),

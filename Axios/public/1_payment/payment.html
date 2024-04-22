@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="payment.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="payment.css" />
     <title>Payment</title>
-</head>
-<body>
-    <div class="buttonparent">
+  </head>
+  <header>
+    <a href="#">
+      <img src="logos/ablogo3.svg" alt="clogo" class="logo" />
+    </a>
+  </header>
+  <body>
+    
+    <div class="container">
+      <div class="buttonparent">
         <div class="buttons">
-            <select class="paymentMethod" id="paymentMethod">
-                <option value="Gpay">Gpay</option>
-                <option value="Phonepe">Phonepe</option>
-                <option value="Patym">Patym</option>
-            </select>
+          <select class="paymentMethod" id="paymentMethod">
+            <option value="Gpay">Gpay</option>
+            <option value="Phonepe">Phonepe</option>
+            <option value="Patym">Patym</option>
+          </select>
         </div>
-    </div>
-    <div class="payment-box">
-        <img src="./QR-codes/GPay.jpg" id="qrcode" alt="gpay">
-    </div>
-    <div class="upidiv">
-        <input type="text" id="upi_id" placeholder="Enter Gpay transaction Id" required>
+      </div>
+      <div class="payment-box">
+        <img src="./QR-codes/GPay.jpg" id="qrcode" alt="gpay"/>
+      </div>
+      <div class="upidiv">
+        <input
+          type="text"
+          id="upi_id"
+          placeholder="Enter Gpay transaction Id"
+          required
+        />
         <button id="send_id">Send</button>
+      </div>
     </div>
-    <div class="text">
 
-    </div>
+    <div class="textin"></div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="payment.js"></script>
-</body>
+  </body>
 </html>

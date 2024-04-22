@@ -40,6 +40,7 @@
   .navlist a {
   position: relative;
   color: black;
+  cursor: pointer;
   margin-left: 60px;
   font-size: 15px;
   font-weight: 600;
@@ -258,6 +259,7 @@
     /* Main content layout */
     .main-content {
       display: flex;
+      margin-top: 29px;
       /* width: 100%; */
       /* height: calc(100% ); */
     }
@@ -269,6 +271,7 @@
       height: 100%;
       padding: 20px;
       border-right: 1px solid #ccc; /* Add right border */
+      
       display: flex;
       flex-wrap: wrap; /* Allow cards to wrap onto new rows */
     }
@@ -278,7 +281,7 @@
       width: 30%;
       background-color: rgb(155 196 188);
       padding: 20px;
-      border-radius: 25px;
+      border-radius: 10px;
       margin-left: 5px;
       overflow-y: auto; /* Enable vertical scrolling */
       max-height: calc(100vh ); /* Adjust the max height as needed */
@@ -356,6 +359,7 @@
     }
     .navbar{
       display: flex;
+
     }
 
     .time-class{

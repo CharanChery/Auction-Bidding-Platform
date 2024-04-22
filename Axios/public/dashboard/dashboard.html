@@ -15,7 +15,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dashboard.css" />
 
     <!-- <link rel="stylesheet" href="style.css" /> -->
   </head>
@@ -40,9 +40,9 @@
         </li>
         <li><a id="allProducts">All Products</a></li>
         <li><a id="myRepo">My Repository</a></li>
-        <li><a href="#">Payment</a></li>
+        <li><a id="paymentGateway">Payment</a></li>
         <li>
-          <a  aria-label="notification" id="notificationbell">
+          <a aria-label="notification" id="notificationbell">
             <i class="fas fa-bell fa-sharp fa-shake"></i>
             <span class="notification-number" id="notif-num">0</span>
           </a>
@@ -67,14 +67,12 @@
     </header>
 
     <div class="main-content">
-        <section class="left-section" id="product-container">
-        </section>
-        <section class="right-section" id="rightproducts">
-            <div class="mylist-text">My List</div>
-        </section>
+      <section class="left-section" id="product-container"></section>
+      <section class="right-section" id="rightproducts">
+        <div class="mylist-text">My List</div>
+      </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="dashboard.js"></script>
-
   </body>
 </html>
