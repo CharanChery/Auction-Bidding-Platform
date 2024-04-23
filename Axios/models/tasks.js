@@ -52,17 +52,12 @@ const notificationSchema = new mongoose.Schema({
         time:String,
      }]
 })
-const payment_card = new mongoose.Schema({
+const paymentcardSchema = new mongoose.Schema({
     username: String,
     trans_id:String,
     amount : Number,
     coins_generated : Number,
-    Customer_address:[{
-        customer_address: String,
-        phone: Number,
-        email: String,
-        pincode: Number,
-    }]
+    time:String,
 })
 
 module.exports = {
@@ -71,4 +66,5 @@ module.exports = {
     userproducts:mongoose.model('userproduct', userproducts),
     validateTransaction:mongoose.model("validateTransaction",validateTransaction),
     notificationSchema:mongoose.model("notificationSchema",notificationSchema),
+    paymentcardSchema:mongoose.model("paymentCard",paymentcardSchema)
 }

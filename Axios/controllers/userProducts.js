@@ -39,28 +39,13 @@ const adduserProducts = async(req,res)=>{
         const usernotification = await notificationSchema.findOne({username1 : username1})
 
         const now = new Date();
-
         const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-
-        // Get the day of the week (0-6, where 0 is Sunday)
         const dayOfWeek = days[now.getDay()];
-
-        // Get the hours (0-23)
         let hours = now.getHours();
-
-        // Get the minutes (0-59)
         let minutes = now.getMinutes();
-
-        // Convert hours to AM/PM format
         const ampm = hours >= 12 ? 'PM' : 'AM';
-
-        // Convert hours from 24-hour to 12-hour format
         hours = hours % 12 || 12;
-
-        // Add leading zeros to minutes if necessary
         minutes = minutes < 10 ? '0' + minutes : minutes;
-
-        // Display the day and time
         const currenttime = `${dayOfWeek} ${hours}:${minutes} ${ampm}`
 
         if(usernotification){

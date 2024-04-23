@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
         const minutesRemaining = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
 
         // Display the countdown
-        console.log(`The bid ends in ${daysRemaining} days, ${hoursRemaining} hours ${minutesRemaining} minutes`);
+        //console.log(`The bid ends in ${daysRemaining} days, ${hoursRemaining} hours ${minutesRemaining} minutes`);
 
         var card = document.createElement("div");
         card.className = "card";

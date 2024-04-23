@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Accept a payment</title>
+    <title>Stripe Payment</title>
     <meta name="description" content="A demo of a payment on Stripe" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="checkout.css" />
@@ -14,6 +14,13 @@
     
     <form id="payment-form">
       <img src="S_AB logo.svg" alt="logo" class="logo">
+      <div class="amount-class">
+        <label for="amount">Amount</label>
+        <div class="amount-class2">
+          <input type="number" id="amount" value="3000" placeholder="Enter amount">
+          <button id="ok">OK</button>
+        </div>
+      </div>
       <div id="payment-element">
         <!--Stripe.js injects the Payment Element-->
       </div>

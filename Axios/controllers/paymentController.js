@@ -12,7 +12,7 @@ const createPaymentIntent = async (req, res) => {
 
   try {
     const description = `Export transaction for ${items.length} items. Customer Name: ${customerName}. Customer Address: ${customerAddress}`;
-
+    //console.log("Backend-",description)
     const customer = await stripe.customers.create({
       name: 'Jenny Rosen',
       address: {

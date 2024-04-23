@@ -36,45 +36,68 @@ document.addEventListener('DOMContentLoaded',async()=>{
                 else{
                     card.className = "card-off"
                 }
-                var cardId = element.productId;
-                card.setAttribute("id", cardId);
+                if(element.new_username === "payment"){
+                  var textcard = document.createElement("div")
+                  textcard.className ="text-card"
+                  var text = document.createElement("p")
+                  text.className='text'
+                  text.innerText=`${element.new_price}/- Payment Success : ${element.index}coins added to your account`
+                  textcard.appendChild(text)
 
+                  var timecard = document.createElement("div")
+                  timecard.className ="time-card"
+                  var time = document.createElement("p")
+                  time.className='time'
+                  time.innerText=element.time
+                  timecard.appendChild(time)
 
-                var textcard = document.createElement("div")
-                textcard.className ="text-card"
-                var text = document.createElement("p")
-                text.className='text'
-                text.innerText="'Outbid Alert: You've been outbid on your item"
-                textcard.appendChild(text)
+                  card.appendChild(textcard)
+                  card.appendChild(timecard)
 
-                var imgcard = document.createElement("div")
-                imgcard.className ="image-card"
-                var img = document.createElement("img")
-                img.src = element.url
-                img.alt="painting"
-                imgcard.appendChild(img)
+                  content.insertBefore(card, content.firstChild);
+                }
+                else{
 
-                var timecard = document.createElement("div")
-                timecard.className ="time-card"
-                var time = document.createElement("p")
-                time.className='time'
-                time.innerText=element.time
-                timecard.appendChild(time)
+                  var cardId = element.productId;
+                  card.setAttribute("id", cardId);
+  
+  
+                  var textcard = document.createElement("div")
+                  textcard.className ="text-card"
+                  var text = document.createElement("p")
+                  text.className='text'
+                  text.innerText="'Outbid Alert: You've been outbid on your item"
+                  textcard.appendChild(text)
+  
+                  var imgcard = document.createElement("div")
+                  imgcard.className ="image-card"
+                  var img = document.createElement("img")
+                  img.src = element.url
+                  img.alt="painting"
+                  imgcard.appendChild(img)
+  
+                  var timecard = document.createElement("div")
+                  timecard.className ="time-card"
+                  var time = document.createElement("p")
+                  time.className='time'
+                  time.innerText=element.time
+                  timecard.appendChild(time)
+  
+                  card.appendChild(textcard)
+                  card.appendChild(imgcard)
+                  card.appendChild(timecard)
+  
+                  content.insertBefore(card, content.firstChild);
 
-                card.appendChild(textcard)
-                card.appendChild(imgcard)
-                card.appendChild(timecard)
-
-                content.insertBefore(card, content.firstChild);
+                  card.addEventListener('click',()=>{
+                      const newpage = '../cards/card.html'
+                      let fullurl = newpage+'?username='+encodeURIComponent(urlusername)+'&id='+encodeURIComponent(cardId)
+                      window.location.href =fullurl
+                    })
+                }
                 // content.appendChild(card)
                 // console.log(element.new_username)
 
-                card.addEventListener('click',()=>{
-
-                    const newpage = '../cards/card.html'
-                    let fullurl = newpage+'?username='+encodeURIComponent(urlusername)+'&id='+encodeURIComponent(cardId)
-                    window.location.href =fullurl
-                  })
             });
         } else {
           notifNum.textContent = 0;
