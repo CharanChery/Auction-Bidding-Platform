@@ -137,7 +137,12 @@ document.addEventListener("DOMContentLoaded", async ()=>{
           let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
           window.location.href =fullurl 
         })
-
+        document.getElementById('logout').addEventListener('click',()=>{
+          const newpage = '../login.html'
+          // C:\Users\chokk\OneDrive\Desktop\axios\public\notificatiofolder\notif.html
+          let fullurl = newpage//+'?username='+encodeURIComponent(urlusername)
+          window.location.href =fullurl 
+        })
 
     });
 
