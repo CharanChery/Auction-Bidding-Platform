@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     const urlParams = new URLSearchParams(queryString);
     const urlusername = urlParams.get('username');
     const url_product_id = urlParams.get('id')
+    const getcoins = await axios.post('http://localhost:5501/api/v2/getcoins',{urlusername: urlusername});
+  
+  
+      //console.log("checking email", getcoins.data.data)
+      points.textContent = getcoins.data.data
 
 
    
@@ -70,18 +75,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         }
         })
 
-        
-
-        // // Display the countdown
-        // console.log(`The bid ends in ${daysRemaining} days, ${hoursRemaining} hours ${minutesRemaining} minutes`);
-
-
-
-
-
-
-
-
         right_img.src  = productdetail.data.data.url; 
         middle_product_name = productdetail.data.data.name
         right_auction_price.textContent   = productdetail.data.data.initial_price;
@@ -91,15 +84,11 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const urlusername = urlParams.get('username');
-        const getcoins = await axios.post('http://localhost:5501/api/v2/getcoins',{urlusername: urlusername});
-  
-  
-      //console.log("checking email", getcoins.data.data)
-      points.textContent = getcoins.data.data
+        
         if (productdetail.data.data.userID === urlusername) {
             bidbutton.disabled = true;
         } 
-        else if(parseInt(points)<parseInt(bidInput.value)){
+        else if(parseInt(getcoins.data.data)<parseInt(productdetail.data.data.normal_price)){
             bidbutton.disabled = true;
             const p1 = document.createElement('p')
             const p2 = document.createElement('p')

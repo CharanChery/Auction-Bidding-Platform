@@ -252,12 +252,13 @@
       
       /* Add padding to body to prevent content from going behind the navbar */
       body {
-        padding-top: 50px; /* Adjust the height according to your navbar height */
+        padding-top: 70px; /* Adjust the height according to your navbar height */
       }
       
       /* Main content layout */
       .main-content {
-        display: flex;
+        display: grid;
+        border-bottom: 1px solid black;
         /* width: 100%; */
         /* height: calc(100% ); */
       }
@@ -268,7 +269,7 @@
       /* Right section styles */
       .right-section {
         width: 100%;
-        background-color: #f0f0f0;
+        background-color: #ffffff;
         height: 100%;
         padding: 20px;
         border-right: 1px solid #ccc; /* Add right border */
@@ -350,4 +351,30 @@
       .navbar{
         display: flex;
       }
+
+      .own-one{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .own-two {
+        width: 100%;
+        background-color: #fbfafa;
+        height: 100%;
+        padding: 20px;
+        border-right: 1px solid #ccc; /* Add right border */
+        display: flex;
+        flex-wrap: wrap; /* Adjust the max height as needed */
+      }
+u{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: underline;
+  background-color: #c1c7c8;
+}
+
+.repo{
+  display: flex;
+  justify-content: center;
+}
       

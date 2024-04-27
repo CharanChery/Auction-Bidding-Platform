@@ -2,6 +2,7 @@ const {userproducts} = require('../models/tasks')
 const {ProductSchema}  =require('../models/tasks')
 const {DetailSchema} = require('../models/tasks')
 const {notificationSchema} = require('../models/tasks')
+const {ownedproducts} = require('../models/tasks')
 // const {validateTransaction}  =require('../models/tasks')
 
 const getUserProducts = async(req,res)=>{
@@ -9,11 +10,20 @@ const getUserProducts = async(req,res)=>{
     //console.log("dashboard backend error")
     try {
         const allproducts = await userproducts.findOne({username:urlusername})
+        const ownproduct = await ownedproducts.findOne({username:urlusername})
 
 
         if (allproducts && allproducts.products) {
             const productIds = allproducts.products.map(product => product.productId);
-            return res.status(200).json({ data: productIds});
+            //console.log("the userproducts", productIds)
+            productIds.forEach((productid)=>{
+
+            })
+            if(ownproduct){
+                const ownproductIds = ownproduct.products.map(product => product.productId);
+                return res.status(200).json({ data: productIds, own:"Yes",owndata:ownproductIds});
+            }
+            return res.status(200).json({ data: productIds, own:"No"});
 
         } else {
 
@@ -35,6 +45,7 @@ const adduserProducts = async(req,res)=>{
         const updateinProductSchema = await ProductSchema.findOne({ _id: url_product_id });
         const userdetails = await DetailSchema.findOne({username:urlusername})
         //creating the notifications
+        // updateinProductSchema.status = false;
         let username1 = updateinProductSchema.userID
         const usernotification = await notificationSchema.findOne({username1 : username1})
 
@@ -56,7 +67,7 @@ const adduserProducts = async(req,res)=>{
                 productId: url_product_id, // Provide the product ID
                 url:updateinProductSchema.url,
                 index: 1, // Provide the index value
-                status: true,// Set the status as per your requirement
+                status: false,// Set the status as per your requirement
                 time: currenttime
             });
             await usernotification.save();
@@ -71,7 +82,7 @@ const adduserProducts = async(req,res)=>{
                     productId:url_product_id, // Provide the product ID
                     url:updateinProductSchema.url,
                     index: 1, // Provide the index value
-                    status: true,// Set the status as per your requirement
+                    status: false,// Set the status as per your requirement
                     time: currenttime
                 }]
             });
@@ -82,7 +93,6 @@ const adduserProducts = async(req,res)=>{
             updateinProductSchema.userID = urlusername; 
             updateinProductSchema.normal_price = currentAmount;
             userdetails.coins = parseInt(userdetails.coins)-currentAmount
-
 
             try {
                 await updateinProductSchema.save(); 
@@ -124,6 +134,7 @@ const adduserProducts = async(req,res)=>{
 
             return res.status(200).json({msg:"data is updated into your list", data:'found'})
         }
+        await updateinProductSchema.save()
 
     } catch (error) {
         console.log("Fail in add the data into userproducts")
@@ -154,6 +165,8 @@ const deleteProducts= async(req,res)=>{
                 }
                 //filter removes the same ID's and leave the non-match ID's
                 user.products = user.products.filter(product => product.productId !== url_product_id);
+                //console.log("theid = ",url_product_id)
+                //console.log("heheheheheheheh  ",user.products )
                 await Promise.all([user.save(), userdetails.save()]);
                 
                 return res.status(200).json({msg:'Notmatched',data:'deleted'})}
@@ -199,5 +212,6 @@ module.exports={
 }
 
 
-
+//getcoins.data.data
+//productdetail.data.data.normal_price;
 

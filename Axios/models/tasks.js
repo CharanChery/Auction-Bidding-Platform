@@ -32,6 +32,13 @@ const userproducts = new mongoose.Schema({
     }],
 });
 
+const ownedproducts = new mongoose.Schema({
+    username: String,
+    products: [{
+        productId: String
+    }]
+});
+
 
 
 const validateTransaction = new mongoose.Schema({
@@ -66,5 +73,7 @@ module.exports = {
     userproducts:mongoose.model('userproduct', userproducts),
     validateTransaction:mongoose.model("validateTransaction",validateTransaction),
     notificationSchema:mongoose.model("notificationSchema",notificationSchema),
-    paymentcardSchema:mongoose.model("paymentCard",paymentcardSchema)
+    paymentcardSchema:mongoose.model("paymentCard",paymentcardSchema),
+    ownedproducts:mongoose.model("ownedProducts",ownedproducts)
+
 }

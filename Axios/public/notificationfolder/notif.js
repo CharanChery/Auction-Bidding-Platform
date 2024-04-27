@@ -56,6 +56,28 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
                   content.insertBefore(card, content.firstChild);
                 }
+                else if(element.new_username === "own"){
+
+                  var textcard = document.createElement("div")
+                  textcard.className ="text-card"
+                  var text = document.createElement("p")
+                  text.className='text'
+                  text.innerText=`Congrats, You own the bid with ${element.new_price}`
+                  textcard.appendChild(text)
+
+                  var timecard = document.createElement("div")
+                  timecard.className ="time-card"
+                  var time = document.createElement("p")
+                  time.className='time'
+                  time.innerText=element.time
+                  timecard.appendChild(time)
+
+                  card.appendChild(textcard)
+                  card.appendChild(timecard)
+
+                  content.insertBefore(card, content.firstChild);
+
+                }
                 else{
 
                   var cardId = element.productId;

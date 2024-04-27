@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", async ()=>{
     const productContainer = document.getElementById('product-container')
     const rightproducts = document.getElementById('rightproducts')
+    const ownproducts = document.getElementById("own-two")
     let points = document.getElementById('points')
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const urlusername = urlParams.get('username');
     
     try {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const urlusername = urlParams.get('username');
 
         const getrightproducts = await axios.get('http://localhost:5501/api/v3/getUserProducts',{
             params: {
@@ -95,15 +96,107 @@ document.addEventListener("DOMContentLoaded", async ()=>{
           }
   
           });
+
+          //Owned products
+          if (getrightproducts.data.own === "Yes") {
+            const myproducts = getrightproducts.data.owndata
+
+            //demoproducts.forEach(async(productId)=> {
+            myproducts.forEach(async(productId)=>{
+              try {
+
+                let productdetail = await axios.get('http://localhost:5501/api/v2/getproductdetail' , {
+                  params: {
+                  productid: productId
+                }
+                })
+                    var card = document.createElement("div");
+                    card.className = "card";
+
+                    
+                    var img = document.createElement("img");
+                    img.src = productdetail.data.data.url; 
+                    img.alt = productdetail.data.data.name;
+                    img.style.width = "100%"; 
+                    img.style.height = "80%";
+                    img.style.objectFit="cover";
+                    
+                    var details = document.createElement("div");
+                    details.className = "details";
+                    
+                    var name = document.createElement("span");
+                    name.className = "name";
+                    name.textContent = productdetail.data.data.name;
+                    
+                    var price = document.createElement("div");
+                    price.className = "price";
+                    
+                    var newPrice = document.createElement("span");
+                    newPrice.className = "new-price";
+                    newPrice.textContent = productdetail.data.data.initial_price;
+                    
+                    var oldPrice = document.createElement("span");
+                    oldPrice.className = "old-price";
+                    oldPrice.textContent = productdetail.data.data.normal_price;
+          
+                    // Append elements to card
+                    details.appendChild(name);
+                    price.appendChild(newPrice);
+                    price.appendChild(oldPrice);
+                    details.appendChild(price);
+                    card.appendChild(img);
+                    card.appendChild(details);
+                    ownproducts.appendChild(card);
+
+              } catch (error) {
+                console.log("Error in own products")
+                console.log(error)
+              }
+
+
+
+
+
+
+            })
+
+
+            
+          } else {
+            var text = document.createElement("div");
+            text.className = "own-one";
+            var h4 = document.createElement('h4')
+            h4.innerText="You have no OWNED products"
+            text.appendChild(h4)
+            ownproducts.appendChild(text);
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
     } catch (error) {
         
     }
 
   
-    const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const urlusername = urlParams.get('username');
+
    const paymentbutton = document.getElementById("paymentbutton")
   
   

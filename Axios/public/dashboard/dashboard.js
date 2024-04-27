@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     const urlusername = urlParams.get('username');
 
     const leftproducts = await axios.get('http://localhost:5501/api/v2/dashboard');
+    //console.log("leftproducts , ",leftproducts)
     try {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
@@ -36,6 +37,10 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     const products = leftproducts.data.data
     //console.log(products)
     products.forEach(function(product) {
+      //console.log(product.status)
+      if (product.status === true) {
+        //console.log(product)
+      } else {
         //console.log(product.bid_end_date)
         let deadlineDate = new Date(product.bid_end_date);
         let currentDate = new Date();
@@ -95,14 +100,19 @@ document.addEventListener("DOMContentLoaded", async ()=>{
         card.appendChild(details);
         card.appendChild(time)
         productContainer.appendChild(card);
+        
+        card.addEventListener('click',()=>{
+          const newpage = '../cards/card.html'
+          let fullurl = newpage+'?username='+encodeURIComponent(urlusername)+'&id='+encodeURIComponent(cardId)
+          window.location.href =fullurl
+        })
+
+      }
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const urlusername = urlParams.get('username');
         
-
-
-
         document.getElementById('allProducts').addEventListener('click',()=>{
           const newpage = '../All-products/all.html'
           let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
@@ -121,14 +131,6 @@ document.addEventListener("DOMContentLoaded", async ()=>{
           window.location.href =fullurl
         })
 
-        
-        
-        card.addEventListener('click',()=>{
-          const newpage = '../cards/card.html'
-          let fullurl = newpage+'?username='+encodeURIComponent(urlusername)+'&id='+encodeURIComponent(cardId)
-          window.location.href =fullurl
-        })
-        
         document.getElementById('notificationbell').addEventListener('click',()=>{
           const newpage = '../notificationfolder/notif.html'
           // C:\Users\chokk\OneDrive\Desktop\axios\public\notificatiofolder\notif.html
@@ -229,10 +231,6 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     console.log(error)
   }
 
-    // const queryString = window.location.search;
-    // const urlParams = new URLSearchParams(queryString);
-    // const urlusername = urlParams.get('username');
-    // const paymentbutton = document.getElementById("paymentbutton")
 
     
 });

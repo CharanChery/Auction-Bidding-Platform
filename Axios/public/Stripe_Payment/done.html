@@ -65,7 +65,7 @@ button{
         <img src="../1images/tick.svg" alt="tick">
         <h1>Payment is successful</h1>
       </div>
-        <button>Back to Dashboard</button>
+        <button id="dashboard">Back to Dashboard</button>
     </div>
   </div>
 </body>
@@ -78,7 +78,13 @@ button{
   
     // Retrieving amount
     const amountValue = localStorage.getItem("amount");
-  
+
+
+    document.getElementById('dashboard').addEventListener('click',()=>{
+      const newpage = '../dashboard/dashboard.html'
+      let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+      window.location.href =fullurl
+    })
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     payment_intent = urlParams.get('payment_intent');
