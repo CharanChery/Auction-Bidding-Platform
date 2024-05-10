@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auction Bidding Homepage</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://i.pinimg.com/originals/e6/e6/ec/e6e6ec515234bff635b4969235996094.jpg");
+      }
+      header {
+        background-color: rgba(255, 255, 255, 0.679);
+        color: #030000;
+        padding: 20px;
+        display: flex;
+        text-align: right;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header img {
+        width: 250px;
+        height: 70px;
+        margin-left: 25px;
+      }
+
+      .navigation a {
+        color: #9b02027e;
+        position: relative;
+        color: #030000;
+        border-bottom: 2px solid transparent;
+        transition: all 0.5s ease-in-out;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+      .navigation a:hover {
+        color: #bb841e; /* Change color on hover */
+        border-bottom: 2px solid black;
+      }
+      .Welcome {
+        color: white;
+        margin-top: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat";
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="#">
+          <img src="1images/ablogo3.svg" alt="logo" />
+        </a>
+      </div>
+      <div class="navigation">
+        <p>
+          <a href="Home.html">Home</a>
+          <a id="Signup">SignUp</a>
+          <a id="Login">Login</a>
+          <!-- <a href="{% url 'Sign up' %}">Sign Up</a>
+          <a href="{% url 'Sign in' %}">Sign in</a>
+          <a href="#">Contact Us</a> -->
+        </p>
+      </div>
+    </header>
+    <div class="Welcome">
+      <h1>
+        <strong>Hey Buddy,</strong> Wanna to bid your Things, <br />Don't worry
+        You're in Correct place <br /><b style="font-family: monotype corsiva"
+          >where you can feel much options to bid the things.</b
+        >
+      </h1>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Auction Bidding. All rights reserved.</p>
+    </footer>
+    <script src="home.js">
+    </script>
+  </body>
+</html>

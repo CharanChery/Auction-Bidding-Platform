@@ -4,7 +4,7 @@
 }
 
 body {
-  background: linear-gradient(45deg, white,red, skyblue, lightyellow);
+  background: linear-gradient(45deg, white,rgb(142, 206, 142), skyblue, lightyellow);
   background-size: 800% 400%;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;

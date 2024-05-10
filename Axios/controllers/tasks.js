@@ -135,5 +135,6 @@ module.exports={
     sendotp,
     checkUsername,
     checkEmail,
-    getusername
+    getusername,
+    
 }
