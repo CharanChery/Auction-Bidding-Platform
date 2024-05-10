@@ -42,6 +42,7 @@
     position: relative;
     color: black;
     margin-left: 60px;
+    cursor: pointer;
     font-size: 15px;
     font-weight: 600;
     border-bottom: 2px solid transparent;
@@ -158,6 +159,7 @@
         margin-left: 0;
         display: block;
         margin: 7px 0;
+        cursor: pointer;
     }
     .searchbar {
         position: absolute;
@@ -378,4 +380,6 @@ u{
   display: flex;
   justify-content: center;
 }
+
+
       

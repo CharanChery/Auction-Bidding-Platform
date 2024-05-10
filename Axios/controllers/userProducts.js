@@ -67,7 +67,7 @@ const adduserProducts = async(req,res)=>{
                 productId: url_product_id, // Provide the product ID
                 url:updateinProductSchema.url,
                 index: 1, // Provide the index value
-                status: false,// Set the status as per your requirement
+                status: true,// Set the status as per your requirement
                 time: currenttime
             });
             await usernotification.save();
@@ -82,7 +82,7 @@ const adduserProducts = async(req,res)=>{
                     productId:url_product_id, // Provide the product ID
                     url:updateinProductSchema.url,
                     index: 1, // Provide the index value
-                    status: false,// Set the status as per your requirement
+                    status: true,// Set the status as per your requirement
                     time: currenttime
                 }]
             });
@@ -203,11 +203,36 @@ const notificationProducts = async(req,res)=>{
         console.log(error)
     }
 }
+
+
+
+const markasread= async(req,res)=>{
+    const {urlusername} = req.body
+
+    try {
+        const isnotificationFound = await notificationSchema.findOne({username1: urlusername})
+        if(isnotificationFound){
+            isnotificationFound.notifications.forEach(notification => {notification.status = false})
+            await isnotificationFound.save()
+            res.status(200).json({msg:"yes"})
+        }
+        else{
+            res.status(200).json({msg:"No"})
+        }
+        
+    } catch (error) {
+        
+    }
+
+}
+
+
 module.exports={
     adduserProducts,
     getUserProducts,
     deleteProducts,
     notificationProducts,
+    markasread
 
 }
 

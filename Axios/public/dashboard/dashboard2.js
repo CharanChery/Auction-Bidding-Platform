@@ -1,9 +1,10 @@
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const urlusername = urlParams.get('username');
+let currentDate = new Date();
+console.log(currentDate);
 
-const rightproducts = await axios.get('http://localhost:5501/api/v3/getuserproducts',{
-    username:urlusername
-});
+console.log(currentDate.toTimeString());
+
+currentDate.setMinutes(currentDate.getMinutes() + 3);
+console.log(currentDate)
+console.log(currentDate.toTimeString()); // Outputs the date in ISO format
 
 

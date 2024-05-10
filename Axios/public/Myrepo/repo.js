@@ -8,6 +8,56 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     const urlusername = urlParams.get('username');
     
     try {
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const urlusername = urlParams.get('username');
+
+          
+          document.getElementById('allProducts').addEventListener('click',()=>{
+            const newpage = '../All-products/all.html'
+            let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+            window.location.href =fullurl
+          })
+  
+          document.getElementById('myRepo').addEventListener('click',()=>{
+            const newpage = '../Myrepo/repo.html'
+            let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+            window.location.href =fullurl
+          })
+          document.getElementById('paymentGateway').addEventListener('click',()=>{
+            const newpage = '../1_payment/demo.html'  
+            let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+            window.location.href =fullurl
+          })
+  
+          document.getElementById('notificationbell').addEventListener('click',()=>{
+            const newpage = '../notificationfolder/notif.html'
+            // C:\Users\chokk\OneDrive\Desktop\axios\public\notificatiofolder\notif.html
+            let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+            window.location.href =fullurl 
+          })
+
+
+          const notifNum = document.getElementById("notif-num")
+          const notification = await axios.post('http://localhost:5501/api/v3/notificationProducts',{
+            urlusername:urlusername
+          })
+
+          //console.log("count",notification.data.datacount)
+          if (notification.data.msg === 'yes') {
+            notifNum.textContent = notification.data.datacount;
+          } else {
+            notifNum.textContent = 0;
+          }
+
+
+
+
+
+
+
+
+
 
         const getrightproducts = await axios.get('http://localhost:5501/api/v3/getUserProducts',{
             params: {
@@ -73,12 +123,10 @@ document.addEventListener("DOMContentLoaded", async ()=>{
                     rightproducts.appendChild(card);
 
 
-                    document.getElementById('allProducts').addEventListener('click',()=>{
-                        const newpage = '../All-products/all.html'
-                        let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
-                        window.location.href =fullurl
-                      })
-                  
+
+
+                    
+                
                   
                       card.addEventListener('click',()=>{
                         const newpage = '../cards/card.html'
@@ -96,6 +144,39 @@ document.addEventListener("DOMContentLoaded", async ()=>{
           }
   
           });
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           //Owned products
           if (getrightproducts.data.own === "Yes") {
@@ -194,16 +275,5 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     } catch (error) {
         
     }
-
-  
-
-   const paymentbutton = document.getElementById("paymentbutton")
-  
-  
-      paymentbutton.addEventListener('click',()=>{
-        const newpage = '../1_payment/payment.html'
-        let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
-        window.location.href =fullurl
-      })
       
   });
