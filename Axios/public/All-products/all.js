@@ -51,8 +51,18 @@ document.addEventListener("DOMContentLoaded", async ()=>{
         const urlParams = new URLSearchParams(queryString);
         const urlusername = urlParams.get('username');
 
+        document.getElementById('allProducts').addEventListener('click',()=>{
+          const newpage = '../All-products/all.html'
+          let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+          window.location.href =fullurl
+        })
         document.getElementById('myRepo').addEventListener('click',()=>{
           const newpage = '../Myrepo/repo.html'
+          let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+          window.location.href =fullurl
+        })
+        document.getElementById('payment').addEventListener('click',()=>{
+          const newpage = '../1_payment/demo.html'
           let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
           window.location.href =fullurl
         })

@@ -10,7 +10,8 @@ const userProducts = require("./routers/userProducts");
 const validateTransaction = require("./routers/validateTransaction");
 const paymentRoutes = require("./routers/paymentRoutes")
 const paymentcoins = require("./routers/paymentcoins")
-const adminpage = require("./routers/admin")
+const authRoutes = require("./routers/authRoutes");
+
 require("dotenv").config();
 
 //middleware
@@ -27,8 +28,7 @@ app.use("/api/v3", userProducts);
 app.use("/api/v4", validateTransaction);
 app.use('/', paymentRoutes);
 app.use('/api/v5/payment',paymentcoins)
-
-app.use('/api/v5/admin',adminpage)
+app.use("/auth", authRoutes);
 
 app.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname, "./public/login.html"));

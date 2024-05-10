@@ -113,6 +113,13 @@ document.addEventListener("DOMContentLoaded", async ()=>{
         const urlParams = new URLSearchParams(queryString);
         const urlusername = urlParams.get('username');
         
+        document.getElementById('home').addEventListener('click',()=>{
+          const newpage = '../dashboard/dashboard.html'
+          // C:\Users\chokk\OneDrive\Desktop\axios\public\notificatiofolder\notif.html
+          let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
+          window.location.href =fullurl 
+        })
+
         document.getElementById('allProducts').addEventListener('click',()=>{
           const newpage = '../All-products/all.html'
           let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
@@ -137,7 +144,12 @@ document.addEventListener("DOMContentLoaded", async ()=>{
           let fullurl = newpage+'?username='+encodeURIComponent(urlusername)
           window.location.href =fullurl 
         })
-
+        document.getElementById('logout').addEventListener('click',()=>{
+          const newpage = '../login.html'
+          // C:\Users\chokk\OneDrive\Desktop\axios\public\notificatiofolder\notif.html
+          let fullurl = newpage//+'?username='+encodeURIComponent(urlusername)
+          window.location.href =fullurl 
+        })
 
     });
 

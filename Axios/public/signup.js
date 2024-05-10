@@ -59,7 +59,29 @@ email.addEventListener('input',async(event)=>{
         console.log(error)
     }
 })
+// password2.addEventListener('input',async(event)=>{
+//     const pass2 = event.target.value;
+//     password1.addEventListener('input',async(event)=>{
+//         const pass1 = event.target.value;
+//     })
 
+//     try{
+//         if (pass1!=pass2){
+//             pass2.classList.add('glow-border');
+//             pass2.style.border='2px solid red';
+//             pass2.style.boxShadow="0 0 5px red";
+//             message.textContent='Password not matched'
+//             message.style.color='red';
+//         }
+//         else{
+//             message.textContent="";
+//         }
+//     }
+//     catch(error){
+//         console.log("Password error");
+//         console.log(error)
+//     }
+// })
 
 
 otpbutton.addEventListener('click',async (e)=>{

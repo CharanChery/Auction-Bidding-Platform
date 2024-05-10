@@ -15,7 +15,8 @@
       "default",
       {
         "select-name": "off",
-        "label": "off"
+        "label": "off",
+        "autocomplete-valid": "off"
       }
     ],
     "axe/keyboard": [
@@ -30,6 +31,7 @@
       {
         "button-name": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }
