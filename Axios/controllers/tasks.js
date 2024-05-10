@@ -129,11 +129,24 @@ const sendotp=async(req,res)=>{
     }
 }
 
+const getallusersinfo = async(req,res)=>{
+    try {
+        const allusers = await DetailSchema.find()
+        // console.log(user)
+        //console.log("backend admin")
+        //console.log(allusers)
+        return res.status(200).json({msg:allusers})
+    } catch (error) {
+        return res.status(200).json({msg:"error in finding all the usernames admin" ,code:404})
+    }
+}
+
 module.exports={
     gettask,
     createtask,
     sendotp,
     checkUsername,
     checkEmail,
-    getusername
+    getusername,
+    getallusersinfo
 }

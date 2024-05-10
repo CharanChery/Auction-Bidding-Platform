@@ -14,14 +14,6 @@ document.addEventListener('DOMContentLoaded',async()=>{
         const content = document.getElementById('content') //whole content
 
 
-        // const card = document.getElementById('card')
-        // const contetext_cardnt = document.getElementById('text-card')
-        // const text = document.getElementById('text')
-        // const img_card = document.getElementById('img-card')
-        // const img = document.getElementById('img')
-        // const time_card = document.getElementById('time-card')
-        // const time = document.getElementById('time')
-
 
 
         //console.log("count ",notification.data.data)
@@ -62,7 +54,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
                   textcard.className ="text-card"
                   var text = document.createElement("p")
                   text.className='text'
-                  text.innerText=`Congrats, You own the bid with ${element.new_price}`
+                  text.innerText=`Congrats, You own the bid`
                   textcard.appendChild(text)
 
                   var timecard = document.createElement("div")
@@ -117,6 +109,13 @@ document.addEventListener('DOMContentLoaded',async()=>{
                       window.location.href =fullurl
                     })
                 }
+                document.getElementById('markread').addEventListener('click',async()=>{
+                  const notification = await axios.post('http://localhost:5501/api/v3/markasread',{
+                    urlusername:urlusername
+                  })
+
+
+                })
                 // content.appendChild(card)
                 // console.log(element.new_username)
 

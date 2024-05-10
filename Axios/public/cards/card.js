@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded',async ()=>{
     const bidInput = document.getElementById("bid-amount");
+    
     //left
     let right_img = document.getElementById("left-img");
     //middle
     let middle_product_name = document.getElementById("middle_product_name");
     const middle_product_description = document.getElementById("middle_product_description");
+    //table-starting-price , table-present-price table-bidder
+    const table_staring_price = document.getElementById("table-starting-price")
+    const table_present_price = document.getElementById("table-present-price")
+    const table_bidder = document.getElementById("table-bidder")
     //right
     const right_span_daysleft = document.getElementById("right-span-days");
     let right_auction_price = document.getElementById('right-auction-price');
@@ -42,8 +47,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         document.getElementById('MyClockDisplay').innerHTML = `${daysRemaining}d ${hoursRemaining}h ${minutesRemaining}m ${secondsRemaining}s`;
         setTimeout(showTime, 1000);
 
-
-        
     }
     
     showTime();
@@ -74,9 +77,20 @@ document.addEventListener('DOMContentLoaded',async ()=>{
             productid: url_product_id
         }
         })
+        middle_product_description.textContent= productdetail.data.data.description
+        table_staring_price.textContent = productdetail.data.data.initial_price;
+        table_present_price.textContent=productdetail.data.data.normal_price;
+        //console.log(productdetail.data.data.userID)
+        if(productdetail.data.data.userID=== 'something'){
+            table_bidder.textContent = "-"
+            //console.log(productdetail.data.data.userID)
+        }
+        else{
+            table_bidder.textContent= productdetail.data.data.userID
+        }
 
         right_img.src  = productdetail.data.data.url; 
-        middle_product_name = productdetail.data.data.name
+        middle_product_name.textContent = productdetail.data.data.name
         right_auction_price.textContent   = productdetail.data.data.initial_price;
         right_bidding_price.textContent  = productdetail.data.data.normal_price;
         bidInput.value= productdetail.data.data.normal_price + 10

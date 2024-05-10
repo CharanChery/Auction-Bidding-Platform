@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Search Bar</title>
+    <style>
+        #searchInput {
+            padding: 8px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        #searchResults {
+            list-style-type: none;
+            padding: 0;
+        }
+        #searchResults li {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+        #searchResults li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Simple Search Bar</h2>
+
+<input type="text" id="searchInput" placeholder="Search...">
+
+<ul id="searchResults"></ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        // Display all items initially
+        displayAllItems();
+
+        searchInput.addEventListener('input', () => {
+            const searchText = searchInput.value.toLowerCase();
+
+            // Clear previous search results
+            searchResults.innerHTML = '';
+
+            // Perform search and display results
+            if (searchText.trim() === '') {
+                // Display all items if search input is empty
+                displayAllItems();
+            } else {
+                // Filter items based on search text
+                const results = performSearch(searchText);
+                displayResults(results);
+            }
+        });
+
+        function performSearch(searchText) {
+            // Sample data for demonstration
+            const data = [
+                'Apple',
+                'Banana',
+                'Orange',
+                'Pineapple',
+                'Strawberry'
+            ];
+
+            // Filter data based on search text
+            return data.filter(item => item.toLowerCase().includes(searchText));
+        }
+
+        function displayAllItems() {
+            // Sample data for demonstration
+            const data = [
+                'Apple',
+                'Banana',
+                'Orange',
+                'Pineapple',
+                'Strawberry'
+            ];
+
+            // Display all items
+            displayResults(data);
+        }
+
+        function displayResults(results) {
+            results.forEach(result => {
+                const li = document.createElement('li');
+                li.textContent = result;
+                searchResults.appendChild(li);
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
